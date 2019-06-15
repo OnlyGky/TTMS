@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    #数据源基本配置
+    username: root
+    password: Ygk980204@10
+    url: jdbc:mysql://licalhost:3306/ygktest?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true
+#    //数据库驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource #数据源类型
+    #   数据源其他配置
+    initialSize: 5 #初始化数量
+    minIdle: 5 #最小活跃数
+    maxActive: 20 #最大活跃数
+    maxWait: 60000 #最大连接等待时间
+
+    timeBetweenEvictionRunsMillis: 60000 #间隔多久进行一次检测，检测需要关闭的空闲连接
+    minEvictableIdleTimeMillis: 300000 #一个连接在池中最小生存的时间
+    validationQuery: SELECT 1 FROM DUAL #用来验证数据库连接的查询语句，这个查询语句必须是至少返回一条数据的SELECT语句
+    testWhileIdle: true #是否在连接空闲一段时间后检测其可用性
+    testOnBorrow: false #是否在获得连接后检测其可用性
+    testOnReturn: false #是否在连接放回连接池后检测其可用性
+    poolPreparedStatements: true #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+
+#配置redis
+redis:
+  host: localhost
+  port: 6379
+pagehelper:
+  reasonable: true
